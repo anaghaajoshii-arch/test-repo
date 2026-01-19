@@ -1,0 +1,28 @@
+# 1. Clear global config
+git config --global --unset user.name
+git config --global --unset user.email
+git config --global --unset credential.helper
+
+# 2. Clear local config (in your project folder)
+git config --local --unset user.name
+git config --local --unset user.email
+
+# 3. Clear Windows Credential Manager
+# Open "Credential Manager" from Start Menu
+# Go to "Windows Credentials"
+# Remove any GitHub related entries
+# Set your GitHub username and email
+git config --global user.name "YOUR_GITHUB_USERNAME"
+git config --global user.email "YOUR_GITHUB_EMAIL"
+
+# For this specific project, set local config too
+git config --local user.name "YOUR_GITHUB_USERNAME"
+git config --local user.email "YOUR_GITHUB_EMAIL"
+Since you're pushing to YOUR repo (not someone else's), make sure the remote is correct:
+
+```bash
+# Check current remote
+git remote -v
+
+# If it shows someone else's repo, change it to YOURS
+git remote set-url origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
